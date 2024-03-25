@@ -15,7 +15,7 @@ if (isset ($_POST['submit'])) {
         header("Location: ../php/login.php");
         exit();
     } else {
-        $select = "SELECT `Wachtwoord`, `Naam`, `Type` FROM `gebruiker` WHERE `Email` = '$Email'";
+        $select = "SELECT `Wachtwoord`, `Naam`, `GebruikerID`, `Type` FROM `gebruiker` WHERE `Email` = '$Email'";
         $result = mysqli_query($conn, $select);
 
         if ($result && mysqli_num_rows($result) > 0) {
@@ -29,6 +29,7 @@ if (isset ($_POST['submit'])) {
                 // Set session variables
                 $_SESSION['Naam'] = $row['Naam'];
                 $_SESSION['Type'] = $row['Type'];
+                $_SESSION['GebruikerID'] = $row['GebruikerID'];
 
                 // Redirect the user based on the user type
                 switch ($_SESSION['Type']) {

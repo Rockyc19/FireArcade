@@ -48,47 +48,47 @@
 </head>
 <body>
 <nav class="nav container">
-    <div class="nav__menu">
-        <ul class="nav__list">
-            <li class="nav__item">
-                <a href="../php/monteurpagina.php" class="nav__link">
-                    <i class="ri-home-5-line"></i>
-                </a>
-            </li>
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../php/monteurpagina.php" class="nav__link">
+                            <i class="ri-home-5-line"></i>
+                        </a>
+                    </li>
 
-            <li class="nav__item">
-                <a href="" class="nav__link active__link">
-                    <i class="ri-user-line"></i>
-                </a>
-            </li>
+                    <li class="nav__item">
+                        <a href="" class="nav__link active__link">
+                            <i class="ri-user-line"></i>
+                        </a>
+                    </li>
 
-            <li class="nav__item">
-                <a href="" class="nav__link">
-                    <i class="ri-service-line"></i>
-                </a>
-            </li>
+                    <li class="nav__item">
+                        <a href="" class="nav__link">
+                            <i class="ri-service-line"></i>
+                        </a>
+                    </li>
 
-            <li class="nav__item">
-                <a href="" class="nav__link">
-                    <i class="ri-service-line"></i>
-                </a>
-            </li>
+                    <li class="nav__item">
+                        <a href="" class="nav__link">
+                            <i class="ri-service-line"></i>
+                        </a>
+                    </li>
 
-            <li class="nav__item">
-                <a href="" class="nav__link">
-                    <i class="ri-service-line"></i>
-                </a>
-            </li>
+                    <li class="nav__item">
+                        <a href="" class="nav__link">
+                            <i class="ri-service-line"></i>
+                        </a>
+                    </li>
 
-            <li class="nav__item">
-                <a href="../php/logout.php" class="nav__link">
-                    <i class="ri-logout-box-r-line"></i>
-                </a>
-            </li>
+                    <li class="nav__item">
+                        <a href="../php/logout.php" class="nav__link">
+                            <i class="ri-logout-box-r-line"></i>
+                        </a>
+                    </li>
 
-        </ul>
-    </div>
-</nav>
+                </ul>
+            </div>
+        </nav>
 <?php
 include_once 'dbconn.php';
 
@@ -114,22 +114,19 @@ if(isset($_POST['submit'])) {
     updateCompletionStatus($ticketID, $status);
 }
 
-// Retrieve tickets from the database with user information
-$sql = "SELECT t.*, g.Naam AS GebruikerNaam, g.Achternaam, g.Email, g.Telefoonnummer, g.Straatnaam, g.Huisnummer, g.Postcode FROM ticket t INNER JOIN gebruiker g ON t.GebruikerID = g.GebruikerID";
+// Retrieve tickets from the database
+$sql = "SELECT * FROM ticket";
 $result = mysqli_query($conn, $sql);
 
 // Check if any tickets are found
 if (mysqli_num_rows($result) > 0) {
     echo "<table>";
-    echo "<tr><th>Ticket ID</th><th>User Name</th><th>Email</th><th>Phone Number</th><th>Address</th><th>Order ID</th><th>Description</th><th>Type</th><th>Creation Date</th><th>Completed</th><th>Action</th></tr>";
+    echo "<tr><th>Ticket ID</th><th>User ID</th><th>Order ID</th><th>Description</th><th>Type</th><th>Creation Date</th><th>Completed</th><th>Action</th></tr>";
     // Output data of each row
     while($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>".$row["TicketID"]."</td>";
-        echo "<td>".$row["GebruikerNaam"]." ".$row["Achternaam"]."</td>";
-        echo "<td>".$row["Email"]."</td>";
-        echo "<td>".$row["Telefoonnummer"]."</td>";
-        echo "<td>".$row["Straatnaam"]." ".$row["Huisnummer"].", ".$row["Postcode"]."</td>";
+        echo "<td>".$row["GebruikerID"]."</td>";
         echo "<td>".$row["BestellingID"]."</td>";
         echo "<td>".$row["Omschrijving"]."</td>";
         echo "<td>".$row["Type"]."</td>";

@@ -1,3 +1,7 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .button_plus {
   position: fixed; /* positie vaststellen op de pagina */
   left: 110px; /* afstand vanaf de linkerkant van de pagina */
