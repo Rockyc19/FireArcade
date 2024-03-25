@@ -15,18 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Prepare and bind SQL statement
-    $sql = $conn->prepare("INSERT INTO `ticket`(`GebruikerID`, `SpelkastID`, `Omschrijving`, `Type`, `Aanmaakdatum`, `Is_Voltooid`) VALUES (?, ?, ?, ?, ?, ?)");
-
-    $sql->bind_param("ssssss", $GebruikerID, $SpelkastID, $Omschrijving, $Type, $Aanmaakdatum, $Is_Voltooid);
+    // Prepare SQL statement
+    $sql = "INSERT INTO `ticket`(`Omschrijving`, `Type`) VALUES (?, ?)";
+    $stmt = $conn->prepare($sql);
 
     // Get data from form
-    $GebruikerID = $_POST['GebruikerID'];
-    $SpelkastID = $_POST['SpelkastID'];
     $Omschrijving = $_POST['Omschrijving'];
     $Type = $_POST['Type'];
-    $Aanmaakdatum = $_POST['Aanmaakdatum'];
-    $Is_Voltooid = $_POST['Is_Voltooid'];
+
+    // Bind parameters
+    $stmt->bind_param("ss", $Omschrijving, $Type);
 
     // Execute SQL statement
     if ($stmt->execute()) {
@@ -96,14 +94,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php endif; ?>
         <form action="" method="post">
             <div class="form-group">
-                <label for="GebruikerID">Gebruiker ID:</label>
-                <input type="text" id="GebruikerID" name="GebruikerID" required>
-            </div>
-            <div class="form-group">
-                <label for="SpelkastID">Spelkast ID:</label>
-                <input type="text" id="SpelkastID" name="SpelkastID" required>
-            </div>
-            <div class="form-group">
                 <label for="Omschrijving">Omschrijving:</label>
                 <textarea id="Omschrijving" name="Omschrijving" required></textarea>
             </div>
@@ -112,14 +102,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" id="Type" name="Type" required>
             </div>
             <div class="form-group">
-                <label for="Aanmaakdatum">Aanmaakdatum:</label>
-                <input type="date" id="Aanmaakdatum" name="Aanmaakdatum" required>
-            </div>
-            <div class="form-group">
-                <label for="Is_Voltooid">Is Voltooid:</label>
-                <select id="Is_Voltooid" name="Is_Voltooid" required>
-                    <option value="0">Nee</option>
-                    <option value="1">Ja</option>
+                <label for="Product">Product:</label>
+                <select id="Product" name="Product" required>
+                    <option value="Product1">Product 1</option>
                 </select>
             </div>
             <div class="form-group">
