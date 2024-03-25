@@ -14,17 +14,18 @@ if (isset ($_GET["GebruikerID"])) {
         $Wachtwoord = $_POST["Wachtwoord"];
         $Email = $_POST["Email"];
         $Type = $_POST["Type"];
+        $Telefoonnummer = $_POST["Telefoonnummer"];
         $Straatnaam = $_POST["Straatnaam"];
         $Huisnummer = $_POST["Huisnummer"];
         $Postcode = $_POST["Postcode"];
 
         // Controleer of alle velden zijn ingevuld
-        if (!empty ($Naam) && !empty ($Achternaam) && !empty ($Wachtwoord) && !empty ($Email) && !empty ($Type) && !empty ($Straatnaam) && !empty ($Huisnummer) && !empty ($Postcode)) {
+        if (!empty ($Naam) && !empty ($Achternaam) && !empty ($Wachtwoord) && !empty ($Email) && !empty ($Type) && !empty ($Telefoonnummer) && !empty ($Straatnaam) && !empty ($Huisnummer) && !empty ($Postcode)) {
             // Hash het wachtwoord voordat het wordt opgeslagen
             $hashed_password = password_hash($Wachtwoord, PASSWORD_DEFAULT);
 
             // Update de gebruiker in de database
-            $sql = "UPDATE gebruiker SET Naam='$Naam', Achternaam='$Achternaam', Wachtwoord='$hashed_password', Email='$Email', Type='$Type', Straatnaam='$Straatnaam', Huisnummer='$Huisnummer', Postcode='$Postcode' WHERE GebruikerID=$GebruikerID";
+            $sql = "UPDATE gebruiker SET Naam='$Naam', Achternaam='$Achternaam', Wachtwoord='$hashed_password', Email='$Email', Type='$Type', Straatnaam='$Straatnaam', Telefoonnummer='$Telefoonnummer', Huisnummer='$Huisnummer', Postcode='$Postcode' WHERE GebruikerID=$GebruikerID";
 
             if ($conn->query($sql) === TRUE) {
                 $_SESSION['User_Bewerkt'] = "Gebruiker succesvol bewerkt";
@@ -46,6 +47,7 @@ if (isset ($_GET["GebruikerID"])) {
             // Wachtwoord wordt niet vooringevuld vanwege veiligheidsredenen
             $Email = $row["Email"];
             $Type = $row["Type"];
+            $Telefoonnummer = $row["Telefoonnummer"];
             $Straatnaam = $row["Straatnaam"];
             $Huisnummer = $row["Huisnummer"];
             $Postcode = $row["Postcode"];
