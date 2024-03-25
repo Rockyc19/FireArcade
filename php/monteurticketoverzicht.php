@@ -57,13 +57,13 @@
                     </li>
 
                     <li class="nav__item">
-                        <a href="" class="nav__link active__link">
+                        <a href="../php/monteurticketoverzicht.php" class="nav__link active__link">
                             <i class="ri-user-line"></i>
                         </a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="" class="nav__link">
+                        <a href="../php/contractbeheer.php" class="nav__link">
                             <i class="ri-service-line"></i>
                         </a>
                     </li>
