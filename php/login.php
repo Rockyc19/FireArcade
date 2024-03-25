@@ -39,7 +39,7 @@ if (isset ($_POST['submit'])) {
                     case 'Klant':
                         header("Location: ../php/klantpagina.php");
                         exit();
-                    case 'Gebruiker':
+                    case 'Monteur':
                         header("Location: ../php/monteurpagina.php");
                         exit();
                     default:
