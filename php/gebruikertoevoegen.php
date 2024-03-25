@@ -52,39 +52,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style1.css">
     <title>Gebruiker toevoegen</title>
 </head>
 
 <body>
 
-    <div class="form-container">
-        <form method="post">
+<div class="form-container">
+    <form method="post">
+        <div class="name-container"> <!-- Hier worden naam, achternaam, wachtwoord en email onder elkaar geplaatst -->
             <div class="mb-3">
                 <label for="Naam" class="form-label">Naam</label>
-                <input type="text" class="form-control" id="Naam" name="Naam"
-                    value="<?php echo $Naam; ?>">
+                <input type="text" class="form-control" id="Naam" name="Naam" value="<?php echo $Naam; ?>">
             </div>
 
             <div class="mb-3">
                 <label for="Achternaam" class="form-label">Achternaam</label>
-                <input type="text" class="form-control" id="Naam" name="Achternaam"
-                    value="<?php echo $Achternaam; ?>">
+                <input type="text" class="form-control" id="Naam" name="Achternaam" value="<?php echo $Achternaam; ?>">
             </div>
 
             <div class="mb-3">
                 <label for="Wachtwoord" class="form-label">Wachtwoord</label>
-                <input type="password" class="form-control" id="Wachtwoord" name="Wachtwoord"
-                    value="<?php echo $Wachtwoord; ?>">
+                <input type="password" class="form-control" id="Wachtwoord" name="Wachtwoord" value="<?php echo $Wachtwoord; ?>">
             </div>
 
             <div class="mb-3">
                 <label for="Email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="Email" name="Email" value="<?php echo $Email; ?>">
             </div>
+        </div>
 
-        
-            <div class="form-group">
+        <div class="other-fields"> <!-- Hier worden type, telefoonnummer, straatnaam, huisnummer en postcode naast elkaar geplaatst -->
+            <div class="mb-3">
                 <label for="Type" class="user-type-label">Type</label>
                 <select class="form-control user-type-select" id="Type" name="Type">
                     <option value="">Selecteer User Type</option>
@@ -96,36 +95,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="mb-3">
                 <label for="Telefoonnummer" class="form-label">Telefoonnummer</label>
-                <input type="number" class="form-control" id="Telefoonnummer" name="Telefoonnummer" min="1" max="900000000"
-                    value="<?php echo $Telefoonnummer; ?>">
+                <input type="number" class="form-control" id="Telefoonnummer" name="Telefoonnummer" min="1" max="900000000" value="<?php echo $Telefoonnummer; ?>">
             </div>
 
             <div class="mb-3">
                 <label for="Straatnaam" class="form-label">Straatnaam</label>
-                <input type="text" class="form-control" id="Straatnaam" name="Straatnaam" 
-                    value="<?php echo $Straatnaam; ?>">
+                <input type="text" class="form-control" id="Straatnaam" name="Straatnaam" value="<?php echo $Straatnaam; ?>">
             </div>
 
             <div class="mb-3">
                 <label for="Huisnummer" class="form-label">Huisnummer</label>
-                <input type="number" class="form-control" id="Huisnummer" name="Huisnummer" min="6" max="500"
-                    value="<?php echo $Huisnummer; ?>">
+                <input type="number" class="form-control" id="Huisnummer" name="Huisnummer" min="6" max="500" value="<?php echo $Huisnummer; ?>">
             </div>
 
             <div class="mb-3">
                 <label for="Postcode" class="form-label">Postcode</label>
-                <input type="text" class="form-control" id="Postcode" name="Postcode" min="1" max="500"
-                    value="<?php echo $Postcode; ?>">
+                <input type="text" class="form-control" id="Postcode" name="Postcode" min="1" max="500" value="<?php echo $Postcode; ?>">
             </div>
+        </div>
 
-
-
-            <div class="form-group button-container">
-                <button type="submit" class="btn btn-primary btn-sm btn-annuleren">Opslaan</button>
-                <a class="btn btn-primary btn-sm btn-annuleren" href="../php/adminpagina.php" role="button">Annuleren</a>
-            </div>
-        </form>
-    </div>
+        <div class="btn-container">
+            <button type="submit" class="btn btn-primary btn-sm">Opslaan</button>
+            <a class="btn btn-primary btn-sm" href="../php/adminpagina.php" role="button">Annuleren</a>
+        </div>
+    </form>
+</div>
 
 </body>
 
