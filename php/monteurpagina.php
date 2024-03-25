@@ -1,10 +1,16 @@
 <html>
-    <head>
+<head>
     <link rel="stylesheet" href="../css/style1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css">
-    </head>
-    <body>
-    <nav class="nav container">
+</head>
+<body>
+    <div class="container">
+        <div class="greeting">
+            <h1>Hallo monteur,</h1>
+            <p>Welkom op uw monteurpagina. Hier heeft u toegang tot de tickets van onze klanten en kunt u deze bekijken en beheren.</p>
+        </div>
+
+        <nav class="nav">
             <div class="nav__menu">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -20,19 +26,23 @@
                     </li>
 
                     <li class="nav__item">
+<<<<<<< Updated upstream
                         <a href="../php/contractbeheer.php" class="nav__link">
+=======
+                        <a href="#" class="nav__link">
+>>>>>>> Stashed changes
                             <i class="ri-service-line"></i>
                         </a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="" class="nav__link">
+                        <a href="#" class="nav__link">
                             <i class="ri-service-line"></i>
                         </a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="" class="nav__link">
+                        <a href="#" class="nav__link">
                             <i class="ri-service-line"></i>
                         </a>
                     </li>
@@ -42,9 +52,9 @@
                             <i class="ri-logout-box-r-line"></i>
                         </a>
                     </li>
-
                 </ul>
             </div>
         </nav>
-    </body>
+    </div>
+</body>
 </html>

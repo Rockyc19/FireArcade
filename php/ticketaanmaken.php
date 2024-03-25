@@ -1,15 +1,16 @@
 <?php
+// Establish a database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "firearcade";
 
-$message = '';
+$conn = new mysqli($servername, $username, $password, $dbname);
+mysqli_set_charset($conn, "utf8");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close connection
     $stmt->close();
     $conn->close();
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -44,47 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style1.css">
     <title>Ticket Form</title>
-    <style>
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -105,6 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="Product">Product:</label>
                 <select id="Product" name="Product" required>
                     <option value="Product1">Product 1</option>
+                    <option value="Product2">Product 2</option>
+                    <option value="Product3">Product 3</option>
+                    <option value="Product4">Product 4</option>
                 </select>
             </div>
             <div class="form-group">
