@@ -1,7 +1,3 @@
-* {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .button_plus {
   position: fixed; /* positie vaststellen op de pagina */
   left: 110px; /* afstand vanaf de linkerkant van de pagina */
@@ -93,14 +89,17 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    width: calc(100% - 40px); /* Zorg ervoor dat de tabelcontainer past binnen de beschikbare ruimte */
-    max-width: 1100px; /* Optioneel: stel een maximale breedte in voor de tabelcontainer */
-    overflow-x: auto; /* Voeg horizontaal scrollen toe indien nodig */
-    background-color: #fff; /* Achtergrondkleur van de tabelcontainer */
-    border-radius: 8px; /* Afgeronde hoeken */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schaduw toevoegen voor diepte */
-    padding: 20px; /* Ruimte binnen de tabelcontainer */
+    width: calc(100% - 40px);
+    max-width: 1100px;
+    overflow-x: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* Voeg overflow-y toe om een verticale scrollbar toe te staan */
+    overflow-y: auto;
 }
+
 
 .table {
     width: 100%;
@@ -126,13 +125,17 @@
 
 
 
+
 @media (max-width: 768px) {
-    .table-container {
-        top: 60px; /* Pas de afstand vanaf de bovenkant aan voor kleinere schermen */
-        left: 20px; /* Voeg een linkermarge toe voor betere uitlijning op kleinere schermen */
-        right: auto; /* Reset de rechter positie */
-        width: calc(100% - 40px); /* Pas de breedte aan voor kleinere schermen */
-    }
+  .table-container {
+      /* Overstijg de vaste positie en maak de tabelcontainer scrollbaar */
+      position: static;
+      overflow-x: auto;
+      top: 60px; /* Pas de afstand vanaf de bovenkant aan voor kleinere schermen */
+      left: 20px; /* Voeg een linkermarge toe voor betere uitlijning op kleinere schermen */
+      right: auto; /* Reset de rechter positie */
+      width: calc(100% - 40px); /* Pas de breedte aan voor kleinere schermen */
+  }
 }
 
 
@@ -331,41 +334,3 @@ a{
   margin-bottom: 20px; /* Grotere onderlinge ruimte tussen de elementen */
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-}
-
-input[type="text"],
-textarea,
-select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-input[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #0056b3;
-  }

@@ -69,6 +69,8 @@
                     include 'dbconn.php';
                     session_start();
 
+                
+
                     // Controleer of een filter is toegepast
                     $whereClause = "";
                     if (isset($_GET['type']) && !empty($_GET['type'])) {

@@ -27,7 +27,7 @@
 
                     <li class="nav__item">
 <<<<<<< Updated upstream
-                        <a href="../php/contractbeheer.php" class="nav__link">
+                        <a href="../php/bestelling.php" class="nav__link">
 =======
                         <a href="#" class="nav__link">
 >>>>>>> Stashed changes
