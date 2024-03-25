@@ -26,11 +26,8 @@
                     </li>
 
                     <li class="nav__item">
-<<<<<<< Updated upstream
                         <a href="../php/bestelling.php" class="nav__link">
-=======
-                        <a href="#" class="nav__link">
->>>>>>> Stashed changes
+                        
                             <i class="ri-service-line"></i>
                         </a>
                     </li>
