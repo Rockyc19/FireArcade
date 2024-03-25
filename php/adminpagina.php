@@ -1,138 +1,136 @@
-<?php
-include 'dbconn.php';
-
-session_start();
-
-
-if (isset ($_POST['submit'])) {
-    // Get the form input values
-    $Email = mysqli_real_escape_string($conn, $_POST['Email']);
-    $Wachtwoord = $_POST['Wachtwoord'];
-
-    // Invoer valideren: Controleert of de gebruiker een e-mailadres en wachtwoord heeft ingevoerd.//
-    // Als dit niet het geval is, wordt een foutmelding gegenereerd en wordt de gebruiker teruggestuurd naar de inlogpagina.
-    if (empty ($Email) || empty ($Wachtwoord)) {
-        $_SESSION['error'] = "Please fill in all fields";
-        header("Location: ../php/login.php");
-        exit();
-    } else {
-        $select = "SELECT `Wachtwoord`, `Naam`, `Type` FROM `gebruiker` WHERE `Email` = '$Email'";
-        $result = mysqli_query($conn, $select);
-
-        if ($result && mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
-            $storedPassword = $row['Wachtwoord'];
-
-            // Verify the password
-            if ($Wachtwoord == $storedPassword) {
-                // Authentication successful
-
-                // Set session variables
-                $_SESSION['Naam'] = $row['Naam'];
-                $_SESSION['Type'] = $row['Type'];
-
-                // Redirect the user based on the user type
-                switch ($_SESSION['Type']) {
-                    case 'Admin':
-                        header("Location: ../php/adminpagina.php");
-                        exit();
-                    case 'Klant':
-                        header("Location: ../php/klantpagina.php");
-                        exit();
-                    case 'Monteur':
-                        header("Location: ../php/monteurpagina.php");
-                        exit();
-                    default:
-                        $_SESSION['error'] = "Vekeerde Gebruiker type!";
-                        header("Location: ../php/login.php");
-                        exit();
-                }
-            } else {
-                $_SESSION['error'] = "Foute email of wachtwoord!";
-                header("Location: ../php/login.php");
-                exit();
-            }
-        } else {
-            $_SESSION['error'] = "Foute email of wachtwoord!";
-            header("Location: ../php/login.php");
-            exit();
-        }
-    }
-}
-
-$conn->close();
-?>
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Login</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css">
 
+    <title>Document</title>
 </head>
 
 <body>
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center">
 
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../php/adminpagina.php" class="nav__link active__link">
+                            <i class="ri-home-5-line"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="" class="nav__link">
+                            <i class="ri-user-line"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="" class="nav__link">
+                            <i class="ri-service-line"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="" class="nav__link">
+                            <i class="ri-service-line"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="" class="nav__link">
+                            <i class="ri-service-line"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="../php/logout.php" class="nav__link">
+                            <i class="ri-logout-box-r-line"></i>
+                        </a>
+                    </li>
+
+                </ul>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-10">
-                    <div class="wrap d-md-flex">
-                        <div class="img" style="background-image: url(../images/Arcade-Stock-Picture.jpg);">
-                        </div>
-                        <div class="login-wrap p-4 p-md-5">
-                            <div class="d-flex">
-                                <div class="w-100">
-                                    <h3 class="mb-4">Welkom</h3>
-                                    <spanclass="subtitle">vul uw gegevens in om verder te gaan.</span>
+        </nav>
 
-                                </div>
-                                <div class="w-100">
-                                    <p class="social-media d-flex justify-content-end">
+        <a href="gebruikertoevoegen.php" div class="button_plus"></div> </a>
 
-                                    </p>
-                                </div>
-                            </div>
-                            <form action="#" method="POST" >
-                                <div class="form-group mb-3">
-                                    <label class="label" for="Email">Email</label>
-                                    <input type="email" class="form-control" name="Email" id="Email"
-                                        placeholder="naam@mail.com" required>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="label" for="Wachtwoord">Wachtwoord</label>
-                                    <input type="password" class="form-control" name="Wachtwoord" id="Wachtwoord"
-                                        placeholder="wachtwoord" required>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" name="submit"
-                                        class="form-control btn btn-primary rounded submit px-3">Log In</button>
-                                </div>
-                                <?php if (isset ($_SESSION['error'])) {
-                                    echo $_SESSION['error'];
-                                    ;
-                                    unset($_SESSION['error']);
-                                } ?>
-                                <div class="form-group d-md-flex">
-                                    <div class="w-50 text-left"></div>
-                                </div>
-                            </form>
+        <div class="table-container">
+            <form action="" method="GET">
+                <label for="type">Filter op type:</label>
+                <select name="type" id="type">
+                    <option value="">Alle</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Gebruiker">Gebruiker</option>
+                    <option value="Klant">Klant</option>
+                </select>
+                <button type="submit">Zoek</button>
+            </form>
 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Naam</th>
+                        <th>Achternaam</th>
+                        <th>Wachtwoord</th>
+                        <th>Email</th>
+                        <th>Type</th>
+                        <th>Telefoonnummer</th>
+                        <th>Straatnaam</th>
+                        <th>Huisnummer</th>
+                        <th>Postcode</th>
+                        <th>Acties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include 'dbconn.php';
+                    session_start();
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
+                    // Controleer of een filter is toegepast
+                    $whereClause = "";
+                    if (isset($_GET['type']) && !empty($_GET['type'])) {
+                        $type = $_GET['type'];
+                        $whereClause = " WHERE Type = '$type'";
+                    }
+
+                    // Voer de query uit om alleen gebruikers van het geselecteerde type op te halen
+                    $sql = "SELECT * FROM gebruiker" . $whereClause;
+                    $result = $conn->query($sql);
+
+                    if (!$result) {
+                        die("Invalid query: " . $conn->error);
+                    }
+
+                    // Loop door de resultaten en toon elke gebruiker
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row['GebruikerID'] . "</td>";
+                        echo "<td>" . $row['Naam'] . "</td>";
+                        echo "<td>" . $row['Achternaam'] . "</td>";
+                        echo "<td>" . $row['Wachtwoord'] . "</td>";
+                        echo "<td>" . $row['Email'] . "</td>";
+                        echo "<td>" . $row['Type'] . "</td>";
+                        echo "<td>" . $row['Telefoonnummer'] . "</td>";
+                        echo "<td>" . $row['Straatnaam'] . "</td>";
+                        echo "<td>" . $row['Huisnummer'] . "</td>";
+                        echo "<td>" . $row['Postcode'] . "</td>";
+                        echo "<td>";
+                        echo "<a class='btn btn-primary btn-sm' href='editgebruiker.php?GebruikerID=" . $row['GebruikerID'] . "'>Edit</a>";
+                        echo "<a class='btndelete btn-primary btn-sm' href='gebruikerdelete.php?GebruikerID=" . $row['GebruikerID'] . "'>Delete</a>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </header>
+
 </body>
 
 </html>
-
-<!--  -->

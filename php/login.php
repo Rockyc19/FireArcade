@@ -3,7 +3,6 @@ include 'dbconn.php';
 
 session_start();
 
-
 if (isset ($_POST['submit'])) {
     // Get the form input values
     $Email = mysqli_real_escape_string($conn, $_POST['Email']);
@@ -24,7 +23,7 @@ if (isset ($_POST['submit'])) {
             $storedPassword = $row['Wachtwoord'];
 
             // Verify the password
-            if ($Wachtwoord == $storedPassword) {
+            if (password_verify($Wachtwoord, $storedPassword)) {
                 // Authentication successful
 
                 // Set session variables
@@ -71,7 +70,6 @@ $conn->close();
     <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 
@@ -92,7 +90,7 @@ $conn->close();
                             <div class="d-flex">
                                 <div class="w-100">
                                     <h3 class="mb-4">Welkom</h3>
-                                    <span class="subtitle">vul uw gegevens in om verder te gaan.</span>
+                                    <spanclass="subtitle">vul uw gegevens in om verder te gaan.</span>
 
                                 </div>
                                 <div class="w-100">
