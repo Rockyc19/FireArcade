@@ -1,0 +1,328 @@
+.button_plus {
+  position: fixed; /* positie vaststellen op de pagina */
+  left: 110px; /* afstand vanaf de linkerkant van de pagina */
+  top: 80px; /* afstand vanaf de bovenkant van de pagina */
+  width: 180px; /* breedte van de knop vergroot */
+  height: 180px; /* hoogte van de knop vergroot */
+  background: #095776;
+  cursor: pointer;
+  border: none;
+  z-index: 999; /* z-index verhogen om ervoor te zorgen dat de knop bovenaan blijft */
+  border-radius: 50%; /* maak de knop rond */
+}
+
+.button_plus:before,
+.button_plus:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+}
+
+.button_plus:before {
+  width: 80px; /* breedte van de verticale lijn vergroot */
+  height: 12px; /* hoogte van de verticale lijn vergroot */
+}
+
+.button_plus:after {
+  width: 12px; /* breedte van de horizontale lijn vergroot */
+  height: 80px; /* hoogte van de horizontale lijn vergroot */
+}
+
+.button_plus:hover {
+  background-color: #0d6b9e;
+  transition: 0.2s;
+}
+
+/* button responsive type  */
+
+
+
+
+@media screen and (max-width: 768px) {
+  .button_plus {
+    position: absolute;
+    top: 90%; /* Positie aanpassen naar wens */
+    left: 7%; /* Positie aanpassen naar wens */
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 50px; /* Breedte aanpassen naar wens */
+    height: 50px; /* Hoogte aanpassen naar wens */
+    background-color: #095776; /* Achtergrondkleur */
+    border-radius: 50%; /* Rond maken */
+    cursor: pointer;
+    border: 2px solid white; /* Randdikte en kleur */
+  }
+
+  .button_plus:before,
+  .button_plus:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff; /* Kleur van de plus */
+  }
+
+  .button_plus:before {
+    width: 60%; /* Breedte van de horizontale streep */
+    height: 6px; /* Hoogte van de horizontale streep */
+  }
+
+  .button_plus:after {
+    width: 6px; /* Breedte van de verticale streep */
+    height: 60%; /* Hoogte van de verticale streep */
+  }
+
+  .button_plus:hover {
+    background-color: #0d6b9e; /* Achtergrondkleur bij hover */
+    transition: 0.2s;
+  }
+}
+
+  /* tabel */
+
+
+  .table-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: calc(100% - 40px); /* Zorg ervoor dat de tabelcontainer past binnen de beschikbare ruimte */
+    max-width: 1100px; /* Optioneel: stel een maximale breedte in voor de tabelcontainer */
+    overflow-x: auto; /* Voeg horizontaal scrollen toe indien nodig */
+    background-color: #fff; /* Achtergrondkleur van de tabelcontainer */
+    border-radius: 8px; /* Afgeronde hoeken */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schaduw toevoegen voor diepte */
+    padding: 20px; /* Ruimte binnen de tabelcontainer */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Verdana, sans-serif; /* Gebruik Verdana als lettertype */
+}
+
+.table th,
+.table td {
+    padding: 10px; /* Ruimte binnen de cel */
+    text-align: left; /* Tekst links uitlijnen */
+    border-bottom: 1px solid #ddd; /* Onderstreping van de cellen */
+}
+
+.table th {
+    background-color: #f2f2f2; /* Achtergrondkleur van de header */
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5; /* Achtergrondkleur van de rij bij hover */
+}
+
+
+
+
+@media (max-width: 768px) {
+    .table-container {
+        top: 60px; /* Pas de afstand vanaf de bovenkant aan voor kleinere schermen */
+        left: 20px; /* Voeg een linkermarge toe voor betere uitlijning op kleinere schermen */
+        right: auto; /* Reset de rechter positie */
+        width: calc(100% - 40px); /* Pas de breedte aan voor kleinere schermen */
+    }
+}
+
+
+
+/* navbar */
+.nav{
+    height: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu {
+    position: fixed;
+    bottom: 1rem;
+    width: 90%;
+    background-color: hsl(224, 50%, 31%);
+    border-radius: 3.5rem;
+    padding: 0.5rem 2.25rem 0.5rem 0rem;
+    backdrop-filter: blur(10px);
+    transition: .4s;
+    border: 1px solid grey;
+}
+
+.nav__list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.nav__link{
+    color:var(--font-color);
+    font-size:1.25rem;
+    padding: .3rem;
+    display: flex;
+    border-radius: 5rem;
+}
+
+.active__link{
+    background:linear-gradient(180deg,
+    hsla(var(--font-color),66%,75%,1),
+    hsla(120,66%,75%,2));
+    box-shadow: 0 0 16px hsla(120,66%,75%, 4);
+    color: white;
+}
+
+ul{
+    list-style:none;
+}
+
+a{
+    text-decoration:none;
+}
+
+@media screen and (min-width:576px){
+    .nav__menu{
+        width:328px;
+        left: 0px;
+        right: 0;
+        margin: 0 auto;
+    }
+}
+
+/* btn */
+
+.btn {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #f0f0f0; /* Voeg een subtiele achtergrondkleur toe bij hover */
+}
+
+.btndelete {
+  margin-left: 10px; /* Voeg een beetje ruimte toe tussen de knoppen */
+}
+
+.btndelete:hover {
+  background-color: #f0f0f0; /* Voeg een subtiele achtergrondkleur toe bij hover */
+}
+
+/* form */
+/* Basisstijlen voor de form-container */
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Stijlen voor het formulier binnen de form-container */
+.form-container form {
+  margin: 0 auto;
+  max-width: 350px;
+}
+
+/* Algemene marges voor de formuliervelden */
+.form-container .mb-3,
+.form-container .form-group {
+  margin-bottom: 15px;
+}
+
+/* Stijlen voor de labels van de formuliervelden */
+.form-container .form-label {
+  font-size: 14px;
+  font-weight: bold; /* Vetgedrukte labels */
+  display: block;
+}
+
+/* Stijlen voor de invoervelden van het formulier */
+.form-container .form-control {
+  width: 90%;
+  padding: 10px; /* Grotere padding voor een betere gebruikerservaring */
+  font-size: 14px;
+  border: 1px solid #ccc; /* Subtiele rand om de invoervelden */
+  border-radius: 5px;
+}
+
+/* Stijlen voor de dropdown voor het gebruikerstype */
+.form-container .user-type-label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form-container .user-type-select {
+  width: 103%; /* Laat de dropdown de volledige breedte van de container innemen */
+  padding: 10px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Stijlen voor de container van de knoppen */
+.form-container .btn-container {
+  text-align: center;
+}
+
+/* Stijlen voor de knoppen */
+.form-container .btn {
+  padding: 12px 24px; /* Grotere padding voor een betere klikbaarheid */
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #095776;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Stijlen voor de knoppen bij hover */
+.form-container .btn:hover {
+  background-color: #0d6b9e; /* Donkerdere tint van de primaire kleur bij hover */
+}
+
+/* Aangepaste stijlen voor het plaatsen van de labels en invoervelden */
+/* Plaats de labels en invoervelden voor de naam, achternaam, wachtwoord en e-mail onder elkaar */
+.form-container .name-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Stijlen voor de marges tussen de elementen in de naam-container */
+.form-container .name-container .mb-3 {
+  margin-bottom: 20px; /* Grotere onderlinge ruimte tussen de elementen */
+}
+
+/* Plaats de labels en invoervelden voor de rest naast elkaar */
+.form-container .other-fields {
+  display: flex;
+  flex-wrap: wrap; /* Zorgt ervoor dat de elementen naar een nieuwe regel gaan als ze niet in de container passen */
+  justify-content: space-between; /* Verdeelt de ruimte tussen de elementen */
+}
+
+/* Stijlen voor de marges tussen de elementen in de other-fields container */
+.form-container .other-fields .mb-3 {
+  width: calc(50% - 10px); /* Verdeelt de beschikbare ruimte voor de helft */
+  margin-bottom: 20px; /* Grotere onderlinge ruimte tussen de elementen */
+}
