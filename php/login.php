@@ -20,9 +20,9 @@ if (isset ($_POST['submit'])) {
 
         if ($result && mysqli_num_rows($result) > 0) { // Controleert of er resultaten zijn gevonden op basis van de opgegeven e-mail//
             $row = mysqli_fetch_assoc($result); // Haalt de resultaten op als een associatieve array. //
-            $storedPassword = $row['Wachtwoord'];
+            $storedPassword = $row['Wachtwoord']; //  slaat het wachtwoord van een gebruiker op dat is opgehaald uit de database in de variabele $storedPassword.//
 
-            // Verify the password
+            // Verify the password// Verifieert het opgegeven wachtwoord met het gehashte wachtwoord dat is opgeslagen in de database.//
             if (password_verify($Wachtwoord, $storedPassword)) { 
                 // Authentication successful
 

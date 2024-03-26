@@ -161,7 +161,7 @@
                     </li>
                     <li class="nav__item">
                         <a href="../php/bestelling.php" class="nav__link active__link ">
-                            <i class="ri-service-line"></i>
+                            <i class="ri-product-hunt-line"></i>
                         </a>
                     </li>
                     <li class="nav__item">
