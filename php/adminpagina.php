@@ -73,7 +73,7 @@
 
                     // Controleer of een filter is toegepast
                     $whereClause = "";
-                    if (isset($_GET['type']) && !empty($_GET['type'])) {
+                    if (isset($_GET['type']) && !empty($_GET['type'])) { //Controleert of een filter is toegepast op het gebruikerstype//
                         $type = $_GET['type'];
                         $whereClause = " WHERE Type = '$type'";
                     }

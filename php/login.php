@@ -18,12 +18,12 @@ if (isset ($_POST['submit'])) {
         $select = "SELECT `Wachtwoord`, `Naam`, `GebruikerID`, `Type` FROM `gebruiker` WHERE `Email` = '$Email'";
         $result = mysqli_query($conn, $select);
 
-        if ($result && mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_assoc($result);
+        if ($result && mysqli_num_rows($result) > 0) { // Controleert of er resultaten zijn gevonden op basis van de opgegeven e-mail//
+            $row = mysqli_fetch_assoc($result); // Haalt de resultaten op als een associatieve array. //
             $storedPassword = $row['Wachtwoord'];
 
             // Verify the password
-            if (password_verify($Wachtwoord, $storedPassword)) {
+            if (password_verify($Wachtwoord, $storedPassword)) { 
                 // Authentication successful
 
                 // Set session variables
