@@ -22,7 +22,8 @@ if (isset ($_POST['submit'])) { //Controleert of het formulier is ingediend door
             $row = mysqli_fetch_assoc($result); // Haalt de resultaten op als een associatieve array. //
             $storedPassword = $row['Wachtwoord']; //  slaat het wachtwoord van een gebruiker op dat is opgehaald uit de database in de variabele $storedPassword.//
 
-            // Verify the password// Verifieert het opgegeven wachtwoord met het gehashte wachtwoord dat is opgeslagen in de database.//
+
+            //hier wordt de opgegeven ww geverifieert met het gehashte ww dat is opgeslagen in de database. 
             if (password_verify($Wachtwoord, $storedPassword)) { 
                 // Authentication successful
 
