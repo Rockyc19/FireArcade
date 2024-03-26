@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-include_once 'dbconn.php';
+include 'dbconn.php';
+include 'session.php';
 
 if(empty($_SESSION['GebruikerID']) || $_SESSION['GebruikerID'] == ''){
     header("Location: ../php/login.php");

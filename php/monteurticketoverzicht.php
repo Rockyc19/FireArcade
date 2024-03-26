@@ -90,7 +90,8 @@
             </div>
         </nav>
 <?php
-include_once 'dbconn.php';
+ include 'dbconn.php';
+ include 'session.php';
 
 session_start();
 

@@ -1,13 +1,20 @@
+<?php 
+include 'dbconn.php';
+include 'session.php'; ?>
+
 <html>
+
 <head>
     <link rel="stylesheet" href="../css/style1.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="greeting">
             <h1>Hallo monteur,</h1>
-            <p>Welkom op uw monteurpagina. Hier heeft u toegang tot de tickets van onze klanten en kunt u deze bekijken en beheren.</p>
+            <p>Welkom op uw monteurpagina. Hier heeft u toegang tot de tickets van onze klanten en kunt u deze bekijken
+                en beheren.</p>
         </div>
 
         <nav class="nav">
@@ -27,7 +34,7 @@
 
                     <li class="nav__item">
                         <a href="../php/bestelling.php" class="nav__link">
-                        <i class="ri-product-hunt-line"></i>
+                            <i class="ri-product-hunt-line"></i>
                         </a>
                     </li>
 
@@ -53,4 +60,5 @@
         </nav>
     </div>
 </body>
+
 </html>

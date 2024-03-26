@@ -1,5 +1,6 @@
 <?php
-include_once 'dbconn.php';
+ include 'dbconn.php';
+ include 'session.php';
 
     // Prepare SQL statement
     $sql = "INSERT INTO `ticket`(`Omschrijving`, `Type`) VALUES (?, ?)";

@@ -1,3 +1,7 @@
+<?php 
+include 'dbconn.php';
+include 'session.php'; ?>
+
 <html>
 <head>
     <link rel="stylesheet" href="../css/style1.css">

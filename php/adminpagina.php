@@ -67,6 +67,7 @@
                 <tbody>
                     <?php
                     include 'dbconn.php';
+                    include 'session.php';
                     session_start();
 
                 
