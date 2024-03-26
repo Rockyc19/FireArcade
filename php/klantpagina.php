@@ -24,12 +24,12 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="" class="nav__link">
+                        <a href="../php/ticketaanmaken.php" class="nav__link">
                             <i class="ri-service-line"></i>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="../php/bestelling.php" class="nav__link">
+                        <a href="" class="nav__link">
                             <i class="ri-service-line"></i>
                         </a>
                     </li>

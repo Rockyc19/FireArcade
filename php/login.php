@@ -5,7 +5,7 @@ session_start();
 
 if (isset ($_POST['submit'])) {
     // Get the form input values
-    $Email = mysqli_real_escape_string($conn, $_POST['Email']);
+    $Email = mysqli_real_escape_string($conn, $_POST['Email']); //Haalt de e-mailwaarde op uit het formulier en voert een escapemethoden uit om speciale tekens te ontsnappen om SQL-injectie te voorkomen.//
     $Wachtwoord = $_POST['Wachtwoord'];
 
     // Invoer valideren: Controleert of de gebruiker een e-mailadres en wachtwoord heeft ingevoerd.//
