@@ -27,7 +27,6 @@
 
                     <li class="nav__item">
                         <a href="../php/bestelling.php" class="nav__link">
-                        
                             <i class="ri-service-line"></i>
                         </a>
                     </li>
