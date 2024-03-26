@@ -60,7 +60,6 @@
     <?php
     // Verbinding met de database maken
     include 'dbconn.php';
-    include 'session.php';
     session_start();
 
     // Query om alle gebruikers van het type "Klant" op te halen
