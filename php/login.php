@@ -3,7 +3,7 @@ include 'dbconn.php';
 
 session_start();
 
-if (isset ($_POST['submit'])) {
+if (isset ($_POST['submit'])) { //Controleert of het formulier is ingediend door te controleren of de knop met de naam 'submit' is ingedrukt.//
     // Get the form input values
     $Email = mysqli_real_escape_string($conn, $_POST['Email']); //Haalt de e-mailwaarde op uit het formulier en voert een escapemethoden uit om speciale tekens te ontsnappen om SQL-injectie te voorkomen.//
     $Wachtwoord = $_POST['Wachtwoord'];
@@ -16,7 +16,7 @@ if (isset ($_POST['submit'])) {
         exit();
     } else {
         $select = "SELECT `Wachtwoord`, `Naam`, `GebruikerID`, `Type` FROM `gebruiker` WHERE `Email` = '$Email'";
-        $result = mysqli_query($conn, $select);
+        $result = mysqli_query($conn, $select); //Voert de SQL-query uit op de database.//
 
         if ($result && mysqli_num_rows($result) > 0) { // Controleert of er resultaten zijn gevonden op basis van de opgegeven e-mail//
             $row = mysqli_fetch_assoc($result); // Haalt de resultaten op als een associatieve array. //
@@ -31,7 +31,7 @@ if (isset ($_POST['submit'])) {
                 $_SESSION['Type'] = $row['Type'];
                 $_SESSION['GebruikerID'] = $row['GebruikerID'];
 
-                // Redirect the user based on the user type
+                // Deze code leidt de gebruiker om op basis van het gebruikerstype
                 switch ($_SESSION['Type']) {
                     case 'Admin':
                         header("Location: ../php/adminpagina.php");
