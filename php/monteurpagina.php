@@ -1,6 +1,6 @@
 <?php 
 include 'dbconn.php';
-include 'session.php'; ?>
+ ?>
 
 <html>
 

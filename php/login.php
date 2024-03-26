@@ -23,7 +23,6 @@ if (isset ($_POST['submit'])) { //Controleert of het formulier is ingediend door
             $storedPassword = $row['Wachtwoord']; //  slaat het wachtwoord van een gebruiker op dat is opgehaald uit de database in de variabele $storedPassword.//
 
 
-            //hier wordt de opgegeven ww geverifieert met het gehashte ww dat is opgeslagen in de database. 
             if (password_verify($Wachtwoord, $storedPassword)) { 
                 // Authentication successful
 
