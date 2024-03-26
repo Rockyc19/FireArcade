@@ -119,8 +119,8 @@
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
-        $ticket_sql = "INSERT INTO ticket (GebruikerID, TicketID, BestellingID, Omschrijving, Type, aanmaakdatum, Is_voltooid) 
-        VALUES ('$GebruikerID', '$TicketID', 'Nieuwe bestelling aangemaakt', 'Bestelling', NOW(), 0)";
+        $ticket_sql = "INSERT INTO ticket (GebruikerID, BestellingID, Omschrijving, Type, aanmaakdatum, Is_voltooid) 
+         VALUES ('$GebruikerID', '$last_id', 'Nieuwe bestelling aangemaakt', 'Bestelling', NOW(), 0)";
 
         // Uitvoeren van de ticket query
         if ($conn->query($ticket_sql) === TRUE) {
