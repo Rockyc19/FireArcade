@@ -120,7 +120,7 @@
         }
 
         $ticket_sql = "INSERT INTO ticket (GebruikerID, BestellingID, Omschrijving, Type, aanmaakdatum, Is_voltooid) 
-    VALUES ('$GebruikerID', '$last_id', 'Nieuwe bestelling aangemaakt', 'Bestelling', NOW(), 0)";
+    VALUES ('$GebruikerID', '$OrderID', 'Nieuwe bestelling aangemaakt', 'Bestelling', NOW(), 0)";
 
         // Uitvoeren van de ticket query
         if ($conn->query($ticket_sql) === TRUE) {
@@ -128,8 +128,6 @@
         } else {
             echo "Error bij het aanmaken van het ticket: " . $conn->error;
         }
-    } else {
-        echo "Error bij het aanmaken van de bestelling: " . $conn->error;
     }
 
 
