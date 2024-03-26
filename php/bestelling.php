@@ -120,7 +120,7 @@
         }
 
         $ticket_sql = "INSERT INTO ticket (GebruikerID, BestellingID, Omschrijving, Type, aanmaakdatum, Is_voltooid) 
-    VALUES ('$GebruikerID', '$OrderID', 'Nieuwe bestelling aangemaakt', 'Bestelling', NOW(), 0)";
+    VALUES ('$GebruikerID', '$TicketID', 'Nieuwe bestelling aangemaakt', 'Bestelling', NOW(), 0)";
 
         // Uitvoeren van de ticket query
         if ($conn->query($ticket_sql) === TRUE) {
