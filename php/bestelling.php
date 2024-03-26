@@ -115,7 +115,6 @@
         // Uitvoeren van de query
         if ($conn->query($sql) === TRUE) { //Hier wordt de SQL-query uitgevoerd om de bestelling in te voegen in de database.//
             $last_id = $conn->insert_id;
-            echo "Bestelling succesvol aangemaakt!";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
